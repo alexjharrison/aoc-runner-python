@@ -11,7 +11,7 @@ export const get = async (url: string): Promise<string> => {
     headers: new Headers({
       "content-type": "application/json",
       cookie: `session=${token};`,
-      "User-Agent":"github.com/alexjharrison/aoc-runner-python by alexmon32@live.com",
+      "User-Agent": "github.com/alexjharrison/aoc-runner-python by alexmon32@live.com",
     }),
   });
 
@@ -26,7 +26,7 @@ export const post = async (url: string, body: PostPayload): Promise<string> => {
     headers: new Headers({
       "content-type": "application/x-www-form-urlencoded",
       cookie: `session=${token};`,
-      "User-Agent":"github.com/alexjharrison/aoc-runner-python by alexmon32@live.com",
+      "User-Agent": "github.com/alexjharrison/aoc-runner-python by alexmon32@live.com",
     }),
   });
 
