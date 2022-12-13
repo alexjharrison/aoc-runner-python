@@ -6,32 +6,6 @@ grid, S, E, height, width = get_dataset()
 p2_test_case_answer: str = "29"
 
 
-def get_grid():
-    for _, location in enumerate(grid):
-        node = grid[location]
-        x, y = location
-        # check up
-        if y > 0:
-            neighbor = grid[x, y - 1]
-            if neighbor.value - node.value <= 1:
-                node.neighbors.append(neighbor)
-        # check left
-        if x > 0:
-            neighbor = grid[x - 1, y]
-            if neighbor.value - node.value <= 1:
-                node.neighbors.append(neighbor)
-        # check down
-        if y < height - 1:
-            neighbor = grid[x, y + 1]
-            if neighbor.value - node.value <= 1:
-                node.neighbors.append(neighbor)
-        # check right
-        if x < width - 1:
-            neighbor = grid[x + 1, y]
-            if neighbor.value - node.value <= 1:
-                node.neighbors.append(neighbor)
-
-
 def p2() -> str:
     for _, location in enumerate(grid):
         node = grid[location]
