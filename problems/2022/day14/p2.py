@@ -7,28 +7,22 @@ p2_test_case_answer: str = "93"
 
 
 def p2() -> str:
-    global obstacles
-    min_x = min(pt[0] for pt in obstacles) - 1000
-    max_x = min(pt[0] for pt in obstacles) + 1000
     floor_y = max(pt[1] for pt in obstacles) + 2
-    floor = set(zip(range(min_x, max_x + 1), cycle([floor_y])))
-    obstacles |= floor
     units_of_sand = 0
     sand_x = 500
     sand_y = 0
     count = 0
     while (500, 0) not in obstacles:
-        if (sand_x, sand_y + 1) not in obstacles:
+        if (sand_x, sand_y + 1) not in obstacles and sand_y < floor_y:
             sand_y += 1
-        elif (sand_x - 1, sand_y + 1) not in obstacles:
+        elif (sand_x - 1, sand_y + 1) not in obstacles and sand_y < floor_y:
             sand_y += 1
             sand_x -= 1
-        elif (sand_x + 1, sand_y + 1) not in obstacles:
+        elif (sand_x + 1, sand_y + 1) not in obstacles and sand_y < floor_y:
             sand_y += 1
             sand_x += 1
         else:
             obstacles.add((sand_x, sand_y))
-            print(sand_x, sand_y)
             sand_x = 500
             sand_y = 0
             units_of_sand += 1
