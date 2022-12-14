@@ -1,1 +1,242 @@
-{"meta":{"blockedUntil":null,"currentProblem":"d141p1"},"problems":{"2016":{"day6":{"part1":{"solvedAt":"12/6/2022, 2:01:48 PM","guessedAnswers":["xhnqpqql"]},"part2":{"solvedAt":"12/6/2022, 2:02:55 PM","guessedAnswers":["brhailro"]}}},"2022":{"day1":{"part1":{"solvedAt":"12/1/2022, 8:19:57 AM","guessedAnswers":["74198"]},"part2":{"solvedAt":"12/1/2022, 8:28:25 AM","guessedAnswers":["209914"]}},"day2":{"part1":{"solvedAt":"12/2/2022, 12:38:00 AM","guessedAnswers":["10767","13785","11631","15567","9759"]},"part2":{"solvedAt":"12/2/2022, 12:52:20 AM","guessedAnswers":["9066","12429"]}},"day3":{"part1":{"solvedAt":"12/3/2022, 12:18:42 AM","guessedAnswers":["7889"]},"part2":{"solvedAt":"12/3/2022, 12:50:08 AM","guessedAnswers":["2825"]}},"day4":{"part1":{"solvedAt":"12/4/2022, 12:09:42 AM","guessedAnswers":["503"]},"part2":{"solvedAt":"12/4/2022, 12:15:03 AM","guessedAnswers":["827"]}},"day5":{"part1":{"solvedAt":"12/5/2022, 1:35:05 AM","guessedAnswers":["PSNRGBTFT"]},"part2":{"solvedAt":"12/5/2022, 1:36:24 AM","guessedAnswers":["BNTZFPMMW"]}},"day6":{"part1":{"solvedAt":"12/6/2022, 12:17:28 AM","guessedAnswers":["1757"]},"part2":{"solvedAt":"12/6/2022, 12:18:35 AM","guessedAnswers":["2950"]}},"day7":{"part1":{"solvedAt":"12/7/2022, 8:47:56 AM","guessedAnswers":["1325919"]},"part2":{"solvedAt":"12/7/2022, 2:05:37 PM","guessedAnswers":["5693","15722729","42036703","70000000","12534602","2050735"]}},"day8":{"part1":{"solvedAt":"12/8/2022, 7:26:24 AM","guessedAnswers":["1803"]},"part2":{"solvedAt":"12/8/2022, 8:14:41 AM","guessedAnswers":["129","0","268912"]}},"day9":{"part1":{"solvedAt":"12/9/2022, 8:36:21 AM","guessedAnswers":["6057"]},"part2":{"solvedAt":"12/9/2022, 1:00:06 PM","guessedAnswers":["1","6057","2136","2342","2514"]}},"day10":{"part1":{"solvedAt":"12/10/2022, 12:26:04 AM","guessedAnswers":["14560"]},"part2":{"solvedAt":"12/10/2022, 12:59:49 AM","guessedAnswers":["EKRHEPUZ"]}},"day11":{"part1":{"solvedAt":"12/11/2022, 1:19:42 AM","guessedAnswers":["66802"]},"part2":{"solvedAt":"12/11/2022, 11:12:07 AM","guessedAnswers":["21800916620"]}},"day12":{"part1":{"solvedAt":"12/12/2022, 8:57:41 PM","guessedAnswers":["383"]},"part2":{"solvedAt":"12/12/2022, 9:35:49 PM","guessedAnswers":["-1","377"]}},"day13":{"part1":{"solvedAt":"12/13/2022, 3:54:13 PM","guessedAnswers":["517","339","[1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 14, 15, 18, 19, 20, 23, 24, 27, 28, 30, 31, 33, 34, 38, 39, 41, 43, 45, 46, 47, 52, 53, 54, 55, 60, 61, 64, 65, 67, 68, 70, 71, 77, 78, 79, 81, 82, 83, 87, 88, 89, 91, 92, 93, 95, 96, 98, 100, 101, 104, 106, 109, 110, 113, 114, 118, 120, 121, 122, 123, 125, 126, 127, 128, 130, 131, 132, 138, 141, 142, 144, 145, 147, 148]","6086"]},"part2":{"solvedAt":"12/13/2022, 4:10:35 PM","guessedAnswers":["27930"]}},"day14":{"part1":{"solvedAt":"12/14/2022, 8:56:44 AM","guessedAnswers":["885"]},"part2":{"solvedAt":"12/14/2022, 9:16:18 AM","guessedAnswers":["28691"]}}}}}
+{
+    "meta": {
+        "blockedUntil": null,
+        "currentProblem": "d141p1"
+    },
+    "problems": {
+        "2016": {
+            "day6": {
+                "part1": {
+                    "solvedAt": "12/6/2022, 2:01:48 PM",
+                    "guessedAnswers": [
+                        "xhnqpqql"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/6/2022, 2:02:55 PM",
+                    "guessedAnswers": [
+                        "brhailro"
+                    ]
+                }
+            }
+        },
+        "2022": {
+            "day1": {
+                "part1": {
+                    "solvedAt": "12/1/2022, 8:19:57 AM",
+                    "guessedAnswers": [
+                        "74198"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/1/2022, 8:28:25 AM",
+                    "guessedAnswers": [
+                        "209914"
+                    ]
+                }
+            },
+            "day2": {
+                "part1": {
+                    "solvedAt": "12/2/2022, 12:38:00 AM",
+                    "guessedAnswers": [
+                        "10767",
+                        "13785",
+                        "11631",
+                        "15567",
+                        "9759"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/2/2022, 12:52:20 AM",
+                    "guessedAnswers": [
+                        "9066",
+                        "12429"
+                    ]
+                }
+            },
+            "day3": {
+                "part1": {
+                    "solvedAt": "12/3/2022, 12:18:42 AM",
+                    "guessedAnswers": [
+                        "7889"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/3/2022, 12:50:08 AM",
+                    "guessedAnswers": [
+                        "2825"
+                    ]
+                }
+            },
+            "day4": {
+                "part1": {
+                    "solvedAt": "12/4/2022, 12:09:42 AM",
+                    "guessedAnswers": [
+                        "503"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/4/2022, 12:15:03 AM",
+                    "guessedAnswers": [
+                        "827"
+                    ]
+                }
+            },
+            "day5": {
+                "part1": {
+                    "solvedAt": "12/5/2022, 1:35:05 AM",
+                    "guessedAnswers": [
+                        "PSNRGBTFT"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/5/2022, 1:36:24 AM",
+                    "guessedAnswers": [
+                        "BNTZFPMMW"
+                    ]
+                }
+            },
+            "day6": {
+                "part1": {
+                    "solvedAt": "12/6/2022, 12:17:28 AM",
+                    "guessedAnswers": [
+                        "1757"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/6/2022, 12:18:35 AM",
+                    "guessedAnswers": [
+                        "2950"
+                    ]
+                }
+            },
+            "day7": {
+                "part1": {
+                    "solvedAt": "12/7/2022, 8:47:56 AM",
+                    "guessedAnswers": [
+                        "1325919"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/7/2022, 2:05:37 PM",
+                    "guessedAnswers": [
+                        "5693",
+                        "15722729",
+                        "42036703",
+                        "70000000",
+                        "12534602",
+                        "2050735"
+                    ]
+                }
+            },
+            "day8": {
+                "part1": {
+                    "solvedAt": "12/8/2022, 7:26:24 AM",
+                    "guessedAnswers": [
+                        "1803"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/8/2022, 8:14:41 AM",
+                    "guessedAnswers": [
+                        "129",
+                        "0",
+                        "268912"
+                    ]
+                }
+            },
+            "day9": {
+                "part1": {
+                    "solvedAt": "12/9/2022, 8:36:21 AM",
+                    "guessedAnswers": [
+                        "6057"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/9/2022, 1:00:06 PM",
+                    "guessedAnswers": [
+                        "1",
+                        "6057",
+                        "2136",
+                        "2342",
+                        "2514"
+                    ]
+                }
+            },
+            "day10": {
+                "part1": {
+                    "solvedAt": "12/10/2022, 12:26:04 AM",
+                    "guessedAnswers": [
+                        "14560"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/10/2022, 12:59:49 AM",
+                    "guessedAnswers": [
+                        "EKRHEPUZ"
+                    ]
+                }
+            },
+            "day11": {
+                "part1": {
+                    "solvedAt": "12/11/2022, 1:19:42 AM",
+                    "guessedAnswers": [
+                        "66802"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/11/2022, 11:12:07 AM",
+                    "guessedAnswers": [
+                        "21800916620"
+                    ]
+                }
+            },
+            "day12": {
+                "part1": {
+                    "solvedAt": "12/12/2022, 8:57:41 PM",
+                    "guessedAnswers": [
+                        "383"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/12/2022, 9:35:49 PM",
+                    "guessedAnswers": [
+                        "-1",
+                        "377"
+                    ]
+                }
+            },
+            "day13": {
+                "part1": {
+                    "solvedAt": "12/13/2022, 3:54:13 PM",
+                    "guessedAnswers": [
+                        "517",
+                        "339",
+                        "[1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 14, 15, 18, 19, 20, 23, 24, 27, 28, 30, 31, 33, 34, 38, 39, 41, 43, 45, 46, 47, 52, 53, 54, 55, 60, 61, 64, 65, 67, 68, 70, 71, 77, 78, 79, 81, 82, 83, 87, 88, 89, 91, 92, 93, 95, 96, 98, 100, 101, 104, 106, 109, 110, 113, 114, 118, 120, 121, 122, 123, 125, 126, 127, 128, 130, 131, 132, 138, 141, 142, 144, 145, 147, 148]",
+                        "6086"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/13/2022, 4:10:35 PM",
+                    "guessedAnswers": [
+                        "27930"
+                    ]
+                }
+            },
+            "day14": {
+                "part1": {
+                    "solvedAt": "12/14/2022, 8:56:44 AM",
+                    "guessedAnswers": [
+                        "885"
+                    ]
+                },
+                "part2": {
+                    "solvedAt": "12/14/2022, 9:16:18 AM",
+                    "guessedAnswers": [
+                        "28691"
+                    ]
+                }
+            }
+        }
+    }
+}
