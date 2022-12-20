@@ -14,6 +14,12 @@ def find_zero_idx(lst: list[Slot]) -> int:
     return -1
 
 
+def prt_arr(list: list[Slot]):
+    for item in list:
+        print(f"{item.value} ", end="")
+    print()
+
+
 def p1() -> str:
     # Solve code here, return string to submit
     copy = [x for x in dataset]
@@ -22,29 +28,23 @@ def p1() -> str:
     for val in copy:
         shift_val = val.value
         location = shifted.index(val)
-        direction = int(math.copysign(1, shift_val))
-        i = 0
-        target = abs(shift_val)
-        while i < target:
-            current_idx = (location + (i * direction)) % len(copy)
-            first = current_idx
-            second = (current_idx + direction) % len(copy)
+        diff = location + shift_val
+        offset = len(copy)
+        diff = diff + \
+            int(math.copysign(1, diff)) if diff < 0 or diff >= offset - 1 else diff
+        new_location = diff % offset
 
-            shifted[first], shifted[second] = shifted[second], shifted[first]
-
-            if second == 0:
-                first_val = shifted.pop(0)
-                shifted.append(first_val)
-                target += 1
-                i += 1
-            elif second == len(copy) - 1:
-                last_val = shifted.pop()
-                shifted.insert(0, last_val)
-                target += 1
-                i += 1
-            i += 1
+        old_val = shifted.pop(location)
+        if new_location > 0:
+            shifted.insert(new_location, old_val)
+        else:
+            shifted.append(old_val)
+        # print(location, new_location, old_val.value)
+        # prt_arr(shifted)
 
     zero_idx = find_zero_idx(shifted)
+    print(shifted[(zero_idx + 1000) % len(shifted)].value, shifted[(zero_idx + 2000) %
+          len(shifted)].value, shifted[(zero_idx + 3000) % len(shifted)].value)
     return str(shifted[(zero_idx + 1000) % len(shifted)].value + shifted[(zero_idx + 2000) % len(shifted)].value + shifted[(zero_idx + 3000) % len(shifted)].value)
 
 
