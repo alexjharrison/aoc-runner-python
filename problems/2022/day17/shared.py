@@ -9,6 +9,13 @@ class Grid:
 
     def touchdown(self, tetro_pts: set[tuple[int, int]]):
         self.y_max = max(self.y_max, *[y for x, y in tetro_pts])
+        pts_to_remove: set[tuple[int, int]] = set()
+        for pt_x, pt_y in self.occupied:
+            for new_x, new_y in tetro_pts:
+                if pt_x == new_x:
+                    pts_to_remove.add((pt_x, pt_y))
+        self.occupied -= pts_to_remove
+
         self.occupied |= tetro_pts
 
 
@@ -16,6 +23,7 @@ class Tetronimono:
     def __init__(self, ant: int, grid: Grid):
         self.points: set[tuple[int, int]] = set()
         self.has_stopped = False
+        self.highest: set[tuple[int, int]] = set()
         self.grid = grid
         self.offset_top = 0
 
@@ -42,6 +50,12 @@ class Tetronimono:
                 for y in range(start_y, start_y + 2):
                     self.points.add((x, y))
 
+        for col in range(4):
+            pts_at_x = [(x, y) for x, y in self.points if x == col]
+            if len(pts_at_x) > 0:
+                max_y_at_x = max([y for x, y in self.points if x == col])
+                self.highest.add((col, max_y_at_x))
+
     def go_left(self):
         for x, y in self.points:
             if (x - 1, y) in self.grid.occupied or x == 0:
@@ -58,8 +72,7 @@ class Tetronimono:
         for x, y in self.points:
             if (x, y - 1) in self.grid.occupied or y == 1:
                 self.has_stopped = True
-                self.grid.touchdown(self.points)
-                return
+                self.grid.touchdown(self.highest)
         self.points = set([(x, y - 1) for x, y in self.points])
 
     def print(self):

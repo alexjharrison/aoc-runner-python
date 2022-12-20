@@ -21,7 +21,7 @@ def p2() -> str:
             tetr.go_down()
             blast_count = (blast_count + 1) % len(gas_blasts)
             tetr.print()
-        # tetr.print()
+        tetr.print()
 
     return f"{grid.y_max}"
 
