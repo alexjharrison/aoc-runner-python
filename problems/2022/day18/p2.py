@@ -5,18 +5,18 @@ cubes = get_dataset()
 p2_test_case_answer: str = "58"
 
 Point = tuple[int, int, int]
-cube_min = 0
-cube_max = 22
+cube_min = -1
+cube_max = 23
 
 
-def fall(water_pts: set[Point], pt_to_check: Point, falling_plane_index: int, going_up: bool):
+def fall(pt_to_check: Point, falling_plane_index: int, going_up: bool, water_pts: set[Point] = set()):
     # out of bounds
     if min(pt_to_check) < cube_min or max(pt_to_check) > cube_max:
-        return
+        return water_pts
 
     # already checked
     if pt_to_check in water_pts or pt_to_check in cubes:
-        return
+        return water_pts
 
     water_pts.add(pt_to_check)
 
@@ -26,49 +26,51 @@ def fall(water_pts: set[Point], pt_to_check: Point, falling_plane_index: int, go
     # fall down
     under = list(pt_to_check)
     under[falling_plane_index] += 1 if going_up else -1
-    fall(water_pts, tuple(under), falling_plane_index, going_up)
+    fall(tuple(under), falling_plane_index, going_up, water_pts)
 
     # spread
     ahead = list(pt_to_check)
     ahead[axis_1] += 1
-    fall(water_pts, tuple(ahead), falling_plane_index, going_up)
+    fall(tuple(ahead), falling_plane_index, going_up, water_pts)
 
     behind = list(pt_to_check)
     behind[axis_1] -= 1
-    fall(water_pts, tuple(behind), falling_plane_index, going_up)
+    fall(tuple(behind), falling_plane_index, going_up, water_pts)
 
     left = list(pt_to_check)
     left[axis_2] += 1
-    fall(water_pts, tuple(left), falling_plane_index, going_up)
+    fall(tuple(left), falling_plane_index, going_up, water_pts)
 
     right = list(pt_to_check)
     right[axis_2] -= 1
-    fall(water_pts, tuple(right), falling_plane_index, going_up)
+    fall(tuple(right), falling_plane_index, going_up, water_pts)
+
+    return water_pts
 
 
 def p2() -> str:
-    water_pts: set[Point] = set()
-    for axis_1 in range(cube_max + 1):
-        for axis_2 in range(cube_max + 1):
+    all_water_pts: set[Point] = set()
+    for axis_1 in range(cube_min, cube_max):
+        for axis_2 in range(cube_min, cube_max):
             # fall from z max
-            fall(water_pts, (axis_1, axis_2, cube_max), 2, False)
+            all_water_pts |= fall((axis_1, axis_2, cube_max), 2, False)
             # fall from z min
-            fall(water_pts, (axis_1, axis_2, cube_min), 2, True)
+            all_water_pts |= fall((axis_1, axis_2, cube_min), 2, True)
             # fall from y max
-            fall(water_pts, (axis_1, cube_max, axis_2), 1, False)
+            all_water_pts |= fall((axis_1, cube_max, axis_2), 1, False)
             # fall from y min
-            fall(water_pts, (axis_1, cube_min, axis_2), 1, True)
+            all_water_pts |= fall((axis_1, cube_min, axis_2), 1, True)
             # fall from x max
-            fall(water_pts, (cube_max, axis_1, axis_2), 0, False)
+            all_water_pts |= fall((cube_max, axis_1, axis_2), 0, False)
             # fall from x min
-            fall(water_pts, (cube_min, axis_1, axis_2), 0, True)
+            all_water_pts |= fall((cube_min, axis_1, axis_2), 0, True)
 
-    print(len(water_pts))
+    print(len(all_water_pts))
     print(len(cubes))
-    print(len(cubes) + len(water_pts))
-    # print(water_pts)
-    print((cube_max+1) ** 3)
-    print((2, 2, 5) not in water_pts | cubes)
+    print(len(cubes) + len(all_water_pts))
+    # print(all_water_pts)
+    print((cube_max - cube_min + 1) ** 3)
+    print((2, 2, 5) not in all_water_pts | cubes)
 
     num_sides = 0
     cube_list = list(cubes)
@@ -76,11 +78,11 @@ def p2() -> str:
         x, y, z = cube_list[i]
 
         for offset in [-1, 1]:
-            if (x + offset, y, z) in water_pts:
+            if (x + offset, y, z) in all_water_pts:
                 num_sides += 1
-            if (x, y + offset, z) in water_pts:
+            if (x, y + offset, z) in all_water_pts:
                 num_sides += 1
-            if (x, y, z + offset) in water_pts:
+            if (x, y, z + offset) in all_water_pts:
                 num_sides += 1
     return str(num_sides)
 
