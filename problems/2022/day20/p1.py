@@ -21,30 +21,25 @@ def prt_arr(list: list[Slot]):
 
 
 def p1() -> str:
-    # Solve code here, return string to submit
     copy = [x for x in dataset]
     shifted = [x for x in dataset]
 
     for val in copy:
         shift_val = val.value
         location = shifted.index(val)
-        diff = location + shift_val
-        offset = len(copy)
-        diff = diff + \
-            int(math.copysign(1, diff)) if diff < 0 or diff >= offset - 1 else diff
-        new_location = diff % offset
+        # (location + shift_val) % (len(copy) - 1)
+        new_location = int(math.remainder(location + shift_val, len(copy) - 1))
 
         old_val = shifted.pop(location)
-        if new_location > 0:
-            shifted.insert(new_location, old_val)
-        else:
-            shifted.append(old_val)
+        shifted.insert(new_location, old_val)
         # print(location, new_location, old_val.value)
         # prt_arr(shifted)
 
     zero_idx = find_zero_idx(shifted)
-    print(shifted[(zero_idx + 1000) % len(shifted)].value, shifted[(zero_idx + 2000) %
-          len(shifted)].value, shifted[(zero_idx + 3000) % len(shifted)].value)
+    # print(shifted[(zero_idx + 1000) % len(shifted)].value, shifted[(zero_idx + 2000) %
+    #       len(shifted)].value, shifted[(zero_idx + 3000) % len(shifted)].value)
+    sum = 0
+
     return str(shifted[(zero_idx + 1000) % len(shifted)].value + shifted[(zero_idx + 2000) % len(shifted)].value + shifted[(zero_idx + 3000) % len(shifted)].value)
 
 
